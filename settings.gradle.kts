@@ -1,1 +1,1 @@
-rootProject.name = "pathfilter"
+rootProject.name = "kotlin-pathfilter"
