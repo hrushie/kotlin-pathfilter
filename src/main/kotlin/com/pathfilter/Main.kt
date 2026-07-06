@@ -5,7 +5,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import kotlin.system.exitProcess
 
-const val VERSION = "1.0.0"
+const val VERSION = "1.1.0"
 
 private const val PROG = "pathfilter"
 

@@ -3,8 +3,8 @@ plugins {
     application
 }
 
-group = "com.pathfilter"
-version = "1.0.0"
+group = "com.rushi.pathfilter"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
