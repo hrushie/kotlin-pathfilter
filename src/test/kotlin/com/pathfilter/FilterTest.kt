@@ -44,6 +44,21 @@ class FilterTest {
     }
 
     @Test
+    fun `question mark matches exactly one character`() {
+        val filter = Filter("log", listOf("log?.txt"))
+        assertTrue(filter.matches("log1.txt"))
+        assertFalse(filter.matches("log12.txt"))
+        assertFalse(filter.matches("log.txt"))
+    }
+
+    @Test
+    fun `regex special characters in a pattern are literal`() {
+        val filter = Filter("kt", listOf("app/v1.2(beta).kt"))
+        assertTrue(filter.matches("app/v1.2(beta).kt"))
+        assertFalse(filter.matches("app/v1X2(beta).kt"))
+    }
+
+    @Test
     fun `evaluateFilters preserves declaration order`() {
         val filters = linkedMapOf(
             "b" to listOf("b/**"),
@@ -88,6 +103,13 @@ class FilterConfigTest {
                     - ""
                 """.trimIndent(),
             )
+        }
+    }
+
+    @Test
+    fun `rejects tab characters in indentation`() {
+        assertFailsWith<ConfigError> {
+            parseFilters("filters:\n\tbackend:\n\t\t- \"**\"\n")
         }
     }
 }
