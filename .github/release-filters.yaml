@@ -1,0 +1,8 @@
+# Gates the "Publish GitHub Release" step in build-and-publish.yml: a release
+# is only worth cutting when something that affects the jar's behavior
+# changed, not for README/workflow-only commits.
+filters:
+  src:
+    - "src/**"
+    - "build.gradle.kts"
+    - "settings.gradle.kts"

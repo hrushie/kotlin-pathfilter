@@ -1,0 +1,15 @@
+# Example filters. '!' patterns are exclusions.
+filters:
+  kotlin_sources:
+    - "app/src/**/*.kt"
+    - "!app/src/test/**"
+
+  tests:
+    - "**/test/**/*.kt"
+
+  documentation:
+    - "README.md"
+    - "docs/**/*.md"
+
+  ci:
+    - ".gitlab-ci.yml"
